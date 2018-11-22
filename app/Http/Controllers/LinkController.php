@@ -86,13 +86,18 @@ class LinkController extends Controller {
 
         // Increment click count
         $long_url = $link->long_url;
-        $clicks = intval($link->click);
+
+        $clicks = intval($link->clicks);
 
         if (is_int($clicks)) {
             $clicks += 1;
         }
+
         $link->clicks = $clicks;
+
         $link->save();
+
+//        $link->increment('clicks');
 
         if (env('SETTING_ADV_ANALYTICS')) {
             // Record advanced analytics if option is enabled

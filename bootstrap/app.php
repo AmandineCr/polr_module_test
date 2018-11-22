@@ -84,6 +84,10 @@ $app->register(\Yajra\Datatables\DatatablesServiceProvider::class);
 $app->register(\Torann\GeoIP\GeoIPServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+if (env('APP_DEBUG')) {
+    $app->register(Barryvdh\Debugbar\LumenServiceProvider::class);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
